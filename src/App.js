@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AdminLayout from './layouts/admin';
+import CreateGame from './screens/games/create';
 
 import './style.scss';
 
@@ -13,7 +14,7 @@ function App() {
               <h1>Game Edit</h1>
             </Route>
             <Route path="/game/create">
-              <h1>Game Create</h1>
+              <CreateGame />
             </Route>
             <Route path="/game">
               <h1>Game List</h1>
