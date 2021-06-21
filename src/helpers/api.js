@@ -22,7 +22,7 @@ export const apiGet = (path) => {
     const options = {
         headers: getHeaders(),
     };
-    return axios.post(url, options);
+    return axios.get(url, options);
 };
 
 export const apiPost = (path, data = {}) => {
@@ -38,7 +38,7 @@ export const apiPut = (path, data = {}) => {
     const options = {
         headers: getHeaders(),
     };
-    return axios.post(url, data, options);
+    return axios.put(url, data, options);
 };
 
 export const apiDelete = (path, data = {}) => {
@@ -46,5 +46,5 @@ export const apiDelete = (path, data = {}) => {
     const options = {
         headers: getHeaders(),
     };
-    return axios.post(url, data, options);
+    return axios.delete(url, data, options);
 };

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AdminLayout from './layouts/admin';
 import CreateGame from './screens/games/create';
+import EditGame from './screens/games/edit';
 
 import './style.scss';
 
@@ -11,7 +12,7 @@ function App() {
         <AdminLayout>
           <Switch>
             <Route path="/game/edit/:id">
-              <h1>Game Edit</h1>
+              <EditGame />
             </Route>
             <Route path="/game/create">
               <CreateGame />
