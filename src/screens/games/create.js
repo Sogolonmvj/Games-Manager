@@ -1,9 +1,12 @@
+import {useState} from 'react';
 import Input from '../../components/forms/Input';
 import BadgeInput from '../../components/forms/BadgeInput';
 import DateInput from '../../components/forms/DateInput';
 
 const CreateGame = () => {
- 
+    const [formValues, setFormValues] = useState({});
+    const inputProps = {values: formValues, setValues: setFormValues};
+  
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData(e);
@@ -20,13 +23,13 @@ const CreateGame = () => {
             </div>
 
             <div className="row">
-              <BadgeInput label="Other Titles" name="otherTitles" />
+              <BadgeInput {...inputProps} label="Other Titles" name="otherTitles" />
             </div>
     
             <div className="row">
-                <BadgeInput label="Publishers" name="publishers" className="col-md-4 mb-3" />
-                <BadgeInput label="Developers" name="developers" className="col-md-4 mb-3" />
-                <BadgeInput label="Genres" name="genres" className="col-md-4 mb-3" />
+                <BadgeInput {...inputProps} label="Publishers" name="publishers" className="col-md-4 mb-3" />
+                <BadgeInput {...inputProps} label="Developers" name="developers" className="col-md-4 mb-3" />
+                <BadgeInput {...inputProps} label="Genres" name="genres" className="col-md-4 mb-3" />
             </div>
 
             <div className="row">
