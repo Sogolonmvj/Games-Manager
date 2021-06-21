@@ -1,18 +1,34 @@
 import {useState} from 'react';
+import {useHistory, Link} from 'react-router-dom';
 import Input from '../../components/forms/Input';
 import BadgeInput from '../../components/forms/BadgeInput';
 import DateInput from '../../components/forms/DateInput';
+import { apiPost } from '../../helpers/api';
 
 const CreateGame = () => {
     const [formValues, setFormValues] = useState({});
+    const [displayError, setDisplayError] = useState(false);
     const inputProps = {values: formValues, setValues: setFormValues};
+    const history = useHistory();
   
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData(e);
-        const data = Object.fromEntries(formData);
-        console.log(data);
+
+        try {
+        await apiPost('/games', formValues);
+        history.push('/game');
+        }catch(e) {
+          setDisplayError(true); 
+        }
     };
+
+    if (displayError) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          An error occurred. Try again later. <Link to="/">Home</Link>
+        </div>
+      )
+    }
       
     return (
         <div className="container">
@@ -41,9 +57,9 @@ const CreateGame = () => {
     
             <hr className="mb-4" />
             <div className="d-flex justify-content-between">
-              <a className="btn btn-outline-secondary btn-sm" href="/game">
+              <Link to="/game" className="btn btn-outline-secondary btn-sm">
                 Back
-              </a>
+              </Link>
               <button className="btn btn-primary btn-sm" type="submit">
                 Save
               </button>
