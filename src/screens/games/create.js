@@ -33,10 +33,10 @@ const CreateGame = () => {
             </div>
 
             <div className="row">
-                <DateInput label="First Released" name="firstReleased" />
-                <DateInput label="USA Release" name="usaRelease" />
-                <DateInput label="Japan Release" name="japanRelease" />
-                <DateInput label="Euro Released" name="euroReleased" />
+                <DateInput {...inputProps} label="First Released" name="firstReleased" />
+                <DateInput {...inputProps} label="USA Release" name="usaRelease" />
+                <DateInput {...inputProps} label="Japan Release" name="japanRelease" />
+                <DateInput {...inputProps} label="Euro Released" name="euroReleased" />
             </div>
     
             <hr className="mb-4" />
