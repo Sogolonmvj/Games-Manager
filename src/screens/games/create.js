@@ -19,7 +19,7 @@ const CreateGame = () => {
           <h2>Create Game</h2>
           <form className="needs-validation" noValidate="" onSubmit={handleSubmit}>
             <div className="row">
-                <Input label="Title" name="title" />
+                <Input {...inputProps} label="Title" name="title" />
             </div>
 
             <div className="row">
