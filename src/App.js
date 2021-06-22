@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import AdminLayout from './layouts/admin';
 import CreateGame from './screens/games/create';
 import EditGame from './screens/games/edit';
+import ListGame from './screens/games/list';
 
 import './style.scss';
 
@@ -18,7 +19,7 @@ function App() {
               <CreateGame />
             </Route>
             <Route path="/game">
-              <h1>Game List</h1>
+              <ListGame />
             </Route>
             <Route path="/">
               <h1>Home</h1>
