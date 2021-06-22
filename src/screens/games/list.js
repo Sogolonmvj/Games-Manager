@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import Pagination from '../../components/Pagination';
 import GameTable from '../../components/GameTable';
 import { apiGet } from '../../helpers/api';
+import { usePage } from '../../hooks/UsePage/index';
 
 const ListGame = () => {
     const [games, setGames] = useState([]);
+    const page = usePage();
     
     useEffect(() => {
-        apiGet('/games').then((response) => {
+        apiGet(`/games?page=${page}`).then((response) => {
             setGames(response.data.data);
         });
-    }, []);
+    }, [page]);
 
     console.log(games);
 
@@ -22,6 +25,7 @@ const ListGame = () => {
                 <Link to="/game/create" className="btn btn-primary">Create</Link>
             </div>
             <GameTable games={games} />
+            <Pagination />
         </div>
     )
 };
